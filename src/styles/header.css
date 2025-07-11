@@ -1,0 +1,87 @@
+/* header.css */
+
+/* Estilo base del encabezado */
+header {
+    padding: 12px 0;
+    background-color: #F5F5F5;
+    border-bottom: 1px solid #ddd;
+    font-family: 'Nunito', sans-serif;
+    position: relative;
+    z-index: 10;
+}
+
+/* Logo */
+header a img {
+    height: 60px;
+    width: auto;
+}
+
+/* Menú horizontal */
+nav ul {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #212121;
+    /* texto */
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #E53935;
+    /* botón */
+}
+
+/* Menú hamburguesa */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    gap: 5px;
+}
+
+.menu-toggle span {
+    display: block;
+    height: 3px;
+    background: #212121;
+    width: 100%;
+    border-radius: 3px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    nav ul {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 70px;
+        right: 40px;
+        background: #FFFFFF;
+        border: 1px solid #ccc;
+        padding: 20px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    nav ul.active {
+        display: flex;
+    }
+
+    .menu-toggle {
+        display: flex;
+    }
+}
+
+.header-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
