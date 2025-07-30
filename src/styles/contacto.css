@@ -1,0 +1,158 @@
+/* contacto.css */
+.contacto-wrapper {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    font-family: 'Nunito', sans-serif;
+}
+
+.contacto-texto {
+    background-color: #f9f9f9;
+    padding: 30px 24px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.contacto-texto h2 {
+    color: #E53935;
+    margin-bottom: 16px;
+    font-size: 22px;
+}
+
+.contacto-texto p {
+    color: #212121;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.contacto-formulario {
+    background-color: #ffffff;
+    padding: 30px 24px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.contacto-formulario label {
+    font-weight: bold;
+    color: #212121;
+    margin-bottom: 4px;
+}
+
+.contacto-formulario input,
+.contacto-formulario textarea {
+    width: 100%;
+    padding: 12px;
+    font-family: 'Nunito', sans-serif;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+    resize: vertical;
+}
+
+.contacto-formulario button {
+    background-color: #E53935;
+    color: #fff;
+    padding: 12px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    align-self: flex-start;
+}
+
+.contacto-formulario button:hover {
+    background-color: #c62828;
+}
+
+.overlay-confirmacion {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(33, 33, 33, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.mensaje-superpuesto {
+    background-color: #ffffff;
+    color: #2E7D32;
+    border: 2px solid #C8E6C9;
+    border-radius: 10px;
+    padding: 24px 36px;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    animation: entradaSuave 0.4s ease-in-out;
+}
+
+@keyframes entradaSuave {
+    from {
+        transform: scale(0.9);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.contacto-formulario button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.contacto-formulario button:disabled:hover::after {
+    content: "Gracias por tu mensaje. Pronto te contactaremos.";
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #f9f9f9;
+    color: #333;
+    font-size: 14px;
+    padding: 10px 12px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    margin-top: 8px;
+    white-space: normal;
+    width: 280px;
+    z-index: 1000;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.boton-con-tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+.tooltip {
+    display: none;
+    position: absolute;
+    top: 120%;
+    left: 0;
+    background-color: #f9f9f9;
+    color: #333;
+    font-size: 14px;
+    padding: 10px 12px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    width: 280px;
+    z-index: 1000;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.boton-con-tooltip:hover .tooltip {
+    display: block;
+}

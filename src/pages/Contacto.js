@@ -1,110 +1,142 @@
+import { useEffect, useState } from 'react';
+import '../styles/contacto.css';
+
 const Contacto = () => {
-    const paletas = [
-        {
-            id: 1,
-            boton: '#E53935',
-            icono: '#FBC02D',
-            fondoSeccion: '#F5F5F5',
-            texto: '#212121',
-            fondoGeneral: '#FFFFFF',
+    const [enviado, setEnviado] = useState(false);
+    const [bloqueado, setBloqueado] = useState(false);
+    const BLOQUEO_MINUTOS = 5;
+
+    // Verifica bloqueo desde localStorage al cargar
+    useEffect(() => {
+        const ultimo = localStorage.getItem('bloqueoContacto');
+        if (ultimo) {
+            const tiempoPasado = Date.now() - parseInt(ultimo, 10);
+            const tiempoBloqueo = BLOQUEO_MINUTOS * 60 * 1000;
+            if (tiempoPasado < tiempoBloqueo) {
+                setBloqueado(true);
+                const restante = tiempoBloqueo - tiempoPasado;
+                setTimeout(() => setBloqueado(false), restante);
+            }
         }
-    ];
+    }, []);
 
-    const fuentes = [
-        'Nunito, sans-serif',
-    ];
+    const handleSubmit = async (e) => {
+        e.preventDefault();
 
-    const fontBoxStyle = (font) => ({
-        fontFamily: font,
-        padding: '4px 6px',
-        marginBottom: '4px',
-        borderBottom: '1px solid #ddd'
-    });
+        if (bloqueado) {
+            alert("Por favor espere unos minutos antes de enviar otro mensaje.");
+            return;
+        }
+
+        const formData = new FormData(e.target);
+
+        try {
+            await fetch("https://formsubmit.co/ajax/qmazxgioyhxpnblxgn@fxavaj.com", {
+                method: "POST",
+                body: formData,
+                headers: {
+                    Accept: "application/json",
+                },
+            });
+
+            setEnviado(true);
+            setBloqueado(true);
+            localStorage.setItem('bloqueoContacto', Date.now().toString());
+            e.target.reset();
+
+            setTimeout(() => setEnviado(false), 5000);
+            setTimeout(() => setBloqueado(false), BLOQUEO_MINUTOS * 60 * 1000);
+        } catch (error) {
+            console.error("Error al enviar el formulario:", error);
+        }
+    };
 
     return (
-        <div style={{ padding: '20px', fontFamily: 'sans-serif', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-            <h1>Presentación de Estilos</h1>
-
-            {/* Paletas de colores */}
-            {paletas.map((p) => (
-                <div
-                    key={p.id}
-                    style={{
-                        border: '1px solid #ccc',
-                        borderRadius: '8px',
-                        padding: '16px',
-                        marginBottom: '24px',
-                        boxShadow: '2px 2px 6px rgba(0,0,0,0.1)',
-                        maxWidth: '500px',
-                        width: '100%',
-                        backgroundColor: p.fondoGeneral,
-                        color: p.texto
-                    }}
-                >
-                    <h2 style={{ marginTop: 0 }}>Paleta de colores {p.id}</h2>
-
-                    <button
-                        style={{
-                            backgroundColor: p.boton,
-                            color: '#fff',
-                            border: 'none',
-                            padding: '8px 16px',
-                            borderRadius: '4px',
-                            marginBottom: '8px',
-                            cursor: 'pointer'
-                        }}
-                    >
-                        Botón de muestra
-                    </button>
-
-                    <p style={{ color: p.icono }}>
-                        <span style={{ fontSize: '18px' }}>★</span> Detalles e iconos
-                    </p>
-
-                    <p style={{
-                        backgroundColor: p.fondoSeccion,
-                        padding: '6px',
-                        borderRadius: '4px'
-                    }}>
-                        Fondo de secciones
-                    </p>
-
-                    <p style={{ color: p.texto }}>
-                        Color de texto principal
-                    </p>
-
-                    <p style={{
-                        backgroundColor: p.fondoGeneral,
-                        padding: '6px',
-                        borderRadius: '4px'
-                    }}>
-                        Fondo general
-                    </p>
-                </div>
-            ))}
-
-            {/* Tipografías con contexto */}
-            <div style={{
-                border: '1px solid #ccc',
-                borderRadius: '8px',
-                padding: '16px',
-                marginBottom: '24px',
-                boxShadow: '2px 2px 6px rgba(0,0,0,0.1)',
-                maxWidth: '600px',
-                width: '100%',
-                backgroundColor: '#f9f9f9'
-            }}>
-                <h2>Tipografías</h2>
-                {/* Fuente 5 */}
-                <div style={{ marginBottom: '16px' }}>
-                    <p style={{ fontFamily: 'Nunito, sans-serif', fontSize: '20px', margin: 0 }}>
-                        Título de ejemplo (Nunito)
-                    </p>
-                    <p style={{ fontFamily: 'Nunito, sans-serif' }}>
-                        Este es un texto de ejemplo para el cuerpo del contenido.
-                    </p>
-                </div>
+        <div className="contacto-wrapper">
+            <title>Contacto</title>
+            <div className="contacto-texto">
+                <h2>¿Necesitás ayuda?</h2>
+                <p>¿No encontraste respuesta a tu pregunta en el apartado de <a href="/FAQ">preguntas frecuentes</a>? No dudes en contactarnos.</p>
+                <p>También podés llamarnos al <strong>2442-2165</strong> con las extensiones correspondientes o visitarnos de lunes a viernes de 8:00 a.m. a 4:00 p.m.</p>
             </div>
+
+            <form className="contacto-formulario" onSubmit={handleSubmit}>
+                <input type="hidden" name="_captcha" value="false" />
+                <input type="hidden" name="_template" value="table" />
+                <input type="text" name="_honey" style={{ display: 'none' }} />
+
+                <div>
+                    <label htmlFor="nombre">Nombre completo:</label>
+                    <input
+                        type="text"
+                        id="nombre"
+                        name="NombreContacto"
+                        required
+                        onInvalid={(e) => e.target.setCustomValidity('Por favor complete su nombre completo.')}
+                        onInput={(e) => e.target.setCustomValidity('')}
+                    />
+                </div>
+
+                <div>
+                    <label htmlFor="telefono">Teléfono:</label>
+                    <input
+                        type="tel"
+                        id="telefono"
+                        name="TelefonoContacto"
+                        required
+                        pattern="[2678][0-9]{7}"
+                        onInvalid={(e) => e.target.setCustomValidity('Ingrese un número válido de 8 dígitos en Costa Rica.')}
+                        onInput={(e) => e.target.setCustomValidity('')}
+                    />
+                </div>
+
+                <div>
+                    <label htmlFor="email">Correo electrónico:</label>
+                    <input
+                        type="email"
+                        id="email"
+                        name="EmailContacto"
+                        required
+                        onInvalid={(e) => e.target.setCustomValidity('Ingrese un correo electrónico válido.')}
+                        onInput={(e) => e.target.setCustomValidity('')}
+                    />
+                </div>
+
+                <div>
+                    <label htmlFor="mensaje">Mensaje:</label>
+                    <textarea
+                        id="mensaje"
+                        name="Mensaje"
+                        rows="4"
+                        required
+                        onInvalid={(e) => e.target.setCustomValidity('Por favor escriba su mensaje.')}
+                        onInput={(e) => e.target.setCustomValidity('')}
+                    ></textarea>
+                </div>
+
+                <div className="boton-con-tooltip">
+                    <button
+                        type="submit"
+                        disabled={bloqueado}
+                    >
+                        Enviar
+                    </button>
+                    {bloqueado && (
+                        <span className="tooltip">
+                            Hemos recibido tu mensaje. Nos pondremos en contacto lo antes posible. Gracias por contactar al Hogar de Ancianos Santiago Crespo Calvo.
+                        </span>
+                    )}
+                </div>
+
+            </form>
+
+            {enviado && (
+                <div className="overlay-confirmacion" onClick={() => setEnviado(false)}>
+                    <div className="mensaje-superpuesto" onClick={(e) => e.stopPropagation()}>
+                        Gracias por contactarnos. Nos pondremos en contacto con usted lo antes posible.
+                    </div>
+                </div>
+            )}
         </div>
     );
 };

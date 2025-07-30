@@ -7,35 +7,39 @@ const Footer = () => {
             <div className="footer-contenido">
                 {/* Division 1/3 Informacion General */}
                 <div className="info-general">
-                    <img src="imgs/logo_extenso.jpeg" alt="Logo extenso Hogar de Ancianos" className="logo-extenso" />
+                    <img src="imgs/logoExtenso.png" alt="Logo extenso Hogar de Ancianos" className="logo-extenso" />
                     <p>En el Hogar de Ancianos Santiago Crespo Calvo priorizamos
                         el cuidado de tu familiar, reforzando su día a día con
                         diferentes actividades y terapias.</p>
 
                     <div className="info-item">
-                        <img src="imgs/pin.png" alt="icono mapa" />
+                        <img src="imgs/pin.svg" alt="mapa" />
                         <p>De la iglesia la Agonía 200m Norte y 700m Este, Alajuela, Costa Rica</p>
                     </div>
 
                     <div className="info-item">
-                        <img src="imgs/telefono.png" alt="icono teléfono" />
+                        <img src="imgs/telefono.svg" alt="teléfono" />
                         <p>2442-2165</p>
                     </div>
 
                     <div className="info-item">
-                        <img src="imgs/correo.png" alt="icono correo" />
-                        <p>correo@ejemplo.com</p>
+                        <img src="imgs/correo.svg" alt="correo" />
+                        <p>
+                            rrhh@hsantiagocrespo.com
+                            serviciocliente@hsantiagocrespo.com
+                        </p>
+
                     </div>
 
                     <div className="redes-sociales">
                         <a href="https://www.facebook.com/hogarsantiagocrespo" target="_blank" rel="noopener noreferrer">
-                            <img src="imgs/facebook.png" alt="icono facebook" />
+                            <img src="imgs/facebook.svg" alt="facebook" />
                         </a>
                         <a href="https://waze.com/ul/hd1u15bqp0" target="_blank" rel="noopener noreferrer">
-                            <img src="imgs/waze.png" alt="icono waze" />
+                            <img src="imgs/waze.svg" alt="waze" />
                         </a>
                         <a href="https://maps.app.goo.gl/q8g6uWv5BdZCLzyF7" target="_blank" rel="noopener noreferrer">
-                            <img src="imgs/maps.png" alt="icono google maps" />
+                            <img src="imgs/maps.svg" alt="google maps" />
                         </a>
                     </div>
                 </div>

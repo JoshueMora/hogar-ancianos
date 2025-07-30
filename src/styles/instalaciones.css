@@ -1,0 +1,157 @@
+/* instalaciones.css */
+
+.instalaciones-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+.intro-instalaciones {
+    font-size: 18px;
+    max-width: 800px;
+    margin: 0 auto 30px;
+    color: #424242;
+    text-align: center;
+}
+
+/* Masonry grid libre y denso */
+.masonry-grid {
+    column-width: 240px;
+    column-gap: 12px;
+    width: 100%;
+}
+
+.masonry-item {
+    break-inside: avoid;
+    margin: 0 0 12px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.masonry-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+.masonry-item:hover img {
+    transform: scale(1.02);
+}
+
+/* Overlay */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(33, 33, 33, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.overlay-contenido {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 90vw;
+    max-height: 90vh;
+    overflow: auto;
+    text-align: center;
+}
+
+.overlay-contenido img {
+    max-width: 100%;
+    max-height: 70vh;
+    border-radius: 6px;
+    margin-bottom: 12px;
+}
+
+.overlay-contenido p {
+    color: #212121;
+    font-size: 16px;
+    margin-bottom: 16px;
+}
+
+.cerrar-overlay {
+    background-color: #E53935;
+    color: white;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.cerrar-overlay:hover {
+    background-color: #b71c1c;
+}
+
+/* Overlay pantalla completa sin márgenes */
+.overlay-full {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw !important;
+    height: 100vh !important;
+    padding: 0;
+    margin: 0;
+    z-index: 9999;
+}
+
+/* Botones de navegación */
+.btn-navegacion {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(229, 57, 53, 0.8);
+    color: white;
+    font-size: 32px;
+    border: none;
+    padding: 12px 20px;
+    cursor: pointer;
+    z-index: 1001;
+    border-radius: 50%;
+    transition: background 0.3s ease;
+}
+
+.btn-navegacion:hover {
+    background: rgba(183, 28, 28, 0.9);
+}
+
+.btn-navegacion.izquierda {
+    left: 10px;
+}
+
+.btn-navegacion.derecha {
+    right: 10px;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .masonry-grid {
+        column-width: 200px;
+        column-gap: 10px;
+    }
+}
+
+@media (max-width: 600px) {
+    .masonry-grid {
+        column-width: 100%;
+        column-gap: 0;
+    }
+
+    .overlay-contenido img {
+        max-height: 50vh;
+    }
+}
+
+.mensaje-visita {
+    text-align: center;
+    margin-top: 40px;
+    font-size: 17px;
+    color: #424242;
+}

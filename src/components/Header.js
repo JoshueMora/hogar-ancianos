@@ -9,7 +9,7 @@ const Header = () => {
         <header>
             <div className='main-wrapper header-inner'>
                 <a href='/'>
-                    <img src='imgs/logo.jpeg' alt='logo' />
+                    <img src='imgs/logo0.png' alt='logo' />
                 </a>
                 <div className="menu-toggle" onClick={() => setMenuOpen(!menuOpen)}>
                     <span></span>

@@ -7,16 +7,17 @@ const Inicio = () => {
 
     return (
         <div className="inicio-container">
+            <title>Hogar de Ancianos Santiago Crespo Calvo</title>
             <div className="modulo-donaciones-completo">
                 {/* Sección de texto a la izquierda */}
                 <div className="donaciones-texto">
                     <h2 className="titulo-destacado">DONACIONES</h2>
                     <p>
                         El Hogar de Ancianos Santiago Crespo Calvo es una organización sin fines de lucro dedicada a brindar
-                        atención y cuidado a personas mayores. Tu apoyo es fundamental para continuar nuestra labor.
+                        atención y cuidado a personas adultas mayores. Tu apoyo es fundamental para continuar nuestra labor.
                         Aquí puedes encontrar las diferentes cuentas bancarias donde puedes realizar tus donaciones.
                     </p>
-                    <p><strong>Cédula Jurídica:</strong> X-XXX-XXXXXX</p>
+                    <p><strong>Cédula Jurídica:</strong> 3-002-056484</p>
                 </div>
 
                 {/* Sección de tabs a la derecha */}
