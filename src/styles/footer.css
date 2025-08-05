@@ -160,9 +160,15 @@ footer {
     margin: 0;
 }
 
+.footer-final p {
+    text-decoration: none;
+    font-size: 0.8rem;
+}
+
 .footer-final a {
     color: #E53935;
     text-decoration: none;
+    font-size: 0.8rem;
 }
 
 .footer-final a:hover {
