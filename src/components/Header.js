@@ -1,9 +1,15 @@
-import { Link } from 'react-router-dom';
-import { useState } from 'react';
+import { Link, useLocation } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 import '../styles/header.css';
 
 const Header = () => {
     const [menuOpen, setMenuOpen] = useState(false);
+    const location = useLocation();
+
+    // Cierra el menú al cambiar de ruta
+    useEffect(() => {
+        setMenuOpen(false);
+    }, [location.pathname]);
 
     return (
         <header>

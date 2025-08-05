@@ -1,76 +1,245 @@
-/* contacto.css */
-.contacto-wrapper {
+/* === HERO CON FONDO Y TEXTOS === */
+.contacto-hero-rediseño {
+    background: linear-gradient(180deg, #fdeaea 0%, #ffffff 100%);
+    text-align: center;
+    padding: 60px 20px 40px;
+}
+
+.titulo-contacto {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #212121;
+    margin-bottom: 10px;
+}
+
+.linea-separadora {
+    width: 80px;
+    height: 4px;
+    background-color: #E53935;
+    border: none;
+    margin: 0 auto 40px;
+    border-radius: 2px;
+}
+
+.contacto-hero-titulo {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #212121;
+}
+
+.contacto-hero-titulo .resaltar {
+    color: #e53935;
+}
+
+.contacto-hero-subtitulo {
+    max-width: 600px;
+    margin: 0 auto;
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: #555;
+}
+
+/* === CONTENEDOR GENERAL === */
+.contacto-contenedor-principal {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 32px;
     max-width: 1200px;
     margin: 40px auto;
     padding: 20px;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 40px;
-    font-family: 'Nunito', sans-serif;
+    align-items: stretch;
 }
 
-.contacto-texto {
-    background-color: #f9f9f9;
-    padding: 30px 24px;
-    border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-}
-
-.contacto-texto h2 {
-    color: #E53935;
-    margin-bottom: 16px;
-    font-size: 22px;
-}
-
-.contacto-texto p {
-    color: #212121;
-    font-size: 16px;
-    line-height: 1.6;
-}
-
-.contacto-formulario {
-    background-color: #ffffff;
-    padding: 30px 24px;
-    border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+/* === FORMULARIO === */
+.contacto-formulario-box {
+    background-color: white;
+    border-radius: 16px;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.05);
+    padding: 32px;
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 24px;
 }
 
-.contacto-formulario label {
-    font-weight: bold;
+.contacto-formulario-box h2 {
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 0;
+}
+
+.contacto-formulario-box p {
+    margin: 0 0 12px;
+    color: #555;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+}
+
+.contacto-formulario-box label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 600;
     color: #212121;
-    margin-bottom: 4px;
 }
 
-.contacto-formulario input,
-.contacto-formulario textarea {
+.contacto-formulario-box input,
+.contacto-formulario-box textarea {
     width: 100%;
-    padding: 12px;
-    font-family: 'Nunito', sans-serif;
+    padding: 14px;
+    font-family: inherit;
     border: 1px solid #ccc;
-    border-radius: 6px;
-    font-size: 16px;
+    border-radius: 8px;
+    font-size: 15px;
+    margin-bottom: 16px;
+    box-sizing: border-box;
+}
+
+.contacto-formulario-box textarea {
     resize: vertical;
+    min-height: 120px;
 }
 
-.contacto-formulario button {
-    background-color: #E53935;
-    color: #fff;
-    padding: 12px 20px;
-    font-size: 16px;
+.contacto-formulario-box button {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background-color: #e53935;
+    color: white;
     border: none;
-    border-radius: 6px;
+    padding: 14px 22px;
+    font-weight: bold;
+    border-radius: 8px;
+    font-size: 15px;
+    margin-top: 8px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
-    align-self: flex-start;
+    transition: background-color 0.2s ease;
 }
 
-.contacto-formulario button:hover {
+.contacto-formulario-box button:hover {
     background-color: #c62828;
 }
 
+.contacto-formulario-box button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.contacto-formulario-box button img {
+    filter: brightness(0) invert(1);
+}
+
+/* === TOOLTIPS === */
+.boton-con-tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+.tooltip {
+    display: none;
+    position: absolute;
+    top: 120%;
+    left: 0;
+    background-color: #f9f9f9;
+    color: #333;
+    font-size: 14px;
+    padding: 10px 12px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    width: 280px;
+    z-index: 1000;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.boton-con-tooltip:hover .tooltip {
+    display: block;
+}
+
+/* === AYUDA === */
+.contacto-ayuda-box {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: space-between;
+}
+
+.contacto-ayuda-alerta {
+    background-color: #fff1f1;
+    padding: 24px;
+    border-radius: 12px;
+    border: 1px solid #fbcaca;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
+    font-size: 1.25rem;
+    line-height: 1.6;
+}
+
+.contacto-ayuda-alerta h3 {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 12px;
+    font-size: 18px;
+    color: #e53935;
+}
+
+.contacto-ayuda-alerta a {
+    color: #e53935;
+    text-decoration: underline;
+}
+
+.ayuda-contacto-box {
+    background-color: white;
+    padding: 12px 16px;
+    border-left: 4px solid #e53935;
+    margin-top: 12px;
+    border-radius: 6px;
+}
+
+.contacto-info-extra {
+    background-color: white;
+    padding: 24px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
+    font-size: 1.25rem;
+    line-height: 1.6;
+    color: #212121;
+}
+
+.contacto-info-extra h4 {
+    margin-bottom: 12px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.info-linea {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 12px;
+}
+
+.info-linea div {
+    overflow-wrap: anywhere;
+}
+
+/* === ICONOS === */
+.icono,
+.icono-inline,
+.info-linea img,
+.contacto-ayuda-alerta img {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+    object-fit: contain;
+    margin-top: 2px;
+    margin-right: 8px;
+}
+
+/* === OVERLAY DE CONFIRMACIÓN === */
 .overlay-confirmacion {
     position: fixed;
     top: 0;
@@ -109,50 +278,61 @@
     }
 }
 
-.contacto-formulario button:disabled {
-    background-color: #ccc;
-    cursor: not-allowed;
-}
+/* === RESPONSIVE === */
+@media (max-width: 480px) {
+    .contacto-contenedor-principal {
+        padding: 16px;
+        gap: 24px;
+    }
 
-.contacto-formulario button:disabled:hover::after {
-    content: "Gracias por tu mensaje. Pronto te contactaremos.";
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background-color: #f9f9f9;
-    color: #333;
-    font-size: 14px;
-    padding: 10px 12px;
-    border-radius: 6px;
-    border: 1px solid #ccc;
-    margin-top: 8px;
-    white-space: normal;
-    width: 280px;
-    z-index: 1000;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-}
+    .contacto-formulario-box,
+    .contacto-ayuda-box {
+        padding: 20px;
+    }
 
-.boton-con-tooltip {
-    position: relative;
-    display: inline-block;
-}
+    .form-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
 
-.tooltip {
-    display: none;
-    position: absolute;
-    top: 120%;
-    left: 0;
-    background-color: #f9f9f9;
-    color: #333;
-    font-size: 14px;
-    padding: 10px 12px;
-    border-radius: 6px;
-    border: 1px solid #ccc;
-    width: 280px;
-    z-index: 1000;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-}
+    .contacto-formulario-box input,
+    .contacto-formulario-box textarea {
+        font-size: 1rem;
+        padding: 12px;
+        margin-bottom: 12px;
+    }
 
-.boton-con-tooltip:hover .tooltip {
-    display: block;
+    .contacto-formulario-box button {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .contacto-info-extra,
+    .contacto-ayuda-alerta {
+        font-size: 1rem;
+    }
+
+    .icono-inline,
+    .info-linea img {
+        width: 18px;
+        height: 18px;
+    }
+
+    .ayuda-contacto-box {
+        padding: 12px;
+        font-size: 0.95rem;
+    }
+
+    .contacto-formulario-box h2 {
+        font-size: 1.1rem;
+    }
+
+    .contacto-hero-titulo {
+        font-size: 2rem;
+        margin-bottom: 8px;
+    }
+
+    .contacto-hero-subtitulo {
+        font-size: 0.95rem;
+    }
 }

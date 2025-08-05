@@ -1,6 +1,4 @@
-/* header.css */
-
-/* Estilo base del encabezado */
+/* ===================== CONTENEDOR GENERAL ===================== */
 header {
     padding: 12px 0;
     background-color: #F5F5F5;
@@ -10,16 +8,24 @@ header {
     z-index: 10;
 }
 
-/* Logo */
+/* ===================== INTERIOR DEL HEADER ===================== */
+.header-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* ===================== LOGO ===================== */
 header a img {
     height: 60px;
     width: auto;
+    display: block;
 }
 
-/* Menú horizontal */
+/* ===================== NAVEGACIÓN EN ESCRITORIO ===================== */
 nav ul {
     display: flex;
-    gap: 20px;
+    gap: 24px;
     list-style: none;
     margin: 0;
     padding: 0;
@@ -28,17 +34,16 @@ nav ul {
 nav ul li a {
     text-decoration: none;
     color: #212121;
-    /* texto */
     font-weight: 600;
+    font-size: 16px;
     transition: color 0.3s ease;
 }
 
 nav ul li a:hover {
     color: #E53935;
-    /* botón */
 }
 
-/* Menú hamburguesa */
+/* ===================== BOTÓN HAMBURGUESA ===================== */
 .menu-toggle {
     display: none;
     flex-direction: column;
@@ -57,31 +62,47 @@ nav ul li a:hover {
     border-radius: 3px;
 }
 
-/* Responsive */
+/* ===================== RESPONSIVE: MENÚ MÓVIL ===================== */
 @media (max-width: 768px) {
+    .menu-toggle {
+        display: flex;
+    }
+
     nav ul {
         display: none;
         flex-direction: column;
         position: absolute;
-        top: 70px;
-        right: 40px;
-        background: #FFFFFF;
-        border: 1px solid #ccc;
-        padding: 20px;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        top: 72px;
+        right: 16px;
+        background: #ffffff;
+        border-radius: 12px;
+        border: 1px solid #ddd;
+        padding: 18px 20px;
+        z-index: 100;
+        width: 220px;
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+        transition: all 0.3s ease;
     }
 
     nav ul.active {
         display: flex;
     }
 
-    .menu-toggle {
-        display: flex;
+    nav ul li {
+        margin-bottom: 12px;
     }
-}
 
-.header-inner {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    nav ul li:last-child {
+        margin-bottom: 0;
+    }
+
+    nav ul li a {
+        font-size: 1.125rem;
+        font-weight: 600;
+        color: #212121;
+    }
+
+    nav ul li a:hover {
+        color: #E53935;
+    }
 }

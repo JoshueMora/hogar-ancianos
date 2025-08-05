@@ -1,3 +1,5 @@
+/* main.css → solo estilos globales */
+
 body {
     font-family: 'Nunito', sans-serif;
     color: #212121;
@@ -6,6 +8,8 @@ body {
     padding: 0;
     width: 100%;
     overflow-x: hidden;
+    font-size: 1rem;
+    /* base: 16px */
 }
 
 h1,
@@ -21,8 +25,9 @@ h6 {
 }
 
 p {
-    font-size: 16px;
-    line-height: 1.6;
+    font-size: 1.125rem;
+    /* equivale a 18px */
+    line-height: 1.75;
     color: #212121;
 }
 
@@ -43,6 +48,16 @@ button:hover,
     background-color: #c62828;
 }
 
+a {
+    color: #E53935;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #b71c1c;
+}
+
 .seccion-fondo {
     background-color: #F5F5F5;
     padding: 20px;
@@ -54,165 +69,34 @@ button:hover,
     font-size: 20px;
 }
 
-a {
-    color: #E53935;
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-a:hover {
-    color: #b71c1c;
-}
-
 main {
     padding: 20px 40px;
     background-color: #FFFFFF;
 }
 
-.titulo-destacado {
-    font-size: 28px;
-    font-weight: bold;
-    margin-bottom: 16px;
-}
-
-.inicio-container {
-    max-width: 1200px;
-    margin: auto;
-    padding: 40px 20px;
-}
-
-.modulo-donaciones-completo {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    align-items: flex-start;
-    gap: 40px;
-    background-color: #f9f9f9;
-    border-radius: 8px;
-    padding: 20px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-    margin-bottom: 40px;
-}
-
-/* Ajustes proporcionales realistas para 1920x1080 */
-.donaciones-texto {
-    flex: 0 0 35%;
-    min-width: 320px;
-}
-
-.donaciones-panel {
-    flex: 1;
-    min-width: 600px;
-}
-
-.donaciones-tabs-horizontal {
-    display: flex;
-    flex-wrap: wrap;
-    /* 🔒 evita saltos de línea */
-    width: 100%;
-    gap: 8px;
-}
-
-@media (min-width: 1200px) {
-    .donaciones-tabs-horizontal {
-        flex-wrap: nowrap;
-    }
-}
-
-.donacion-tab-btn {
-    width: calc(100% / 6);
-    /* 🧮 cambia 6 por el número de tabs que tengas */
-    height: 60px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    white-space: normal;
-    text-align: center;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 6px 6px 0 0;
-    background-color: #f5f5f5;
-    color: #333;
-    font-weight: 500;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.donacion-tab-btn:hover {
-    background-color: #e8e8e8;
-}
-
-.donacion-tab-btn.activo {
-    background-color: #E53935;
-    color: #fff;
-    border-bottom: 2px solid transparent;
-    font-weight: bold;
-}
-
-.donacion-tab-panel {
-    border: 1px solid #ccc;
-    border-radius: 0 0 8px 8px;
-    background-color: #fff;
-    padding: 20px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
-}
-
-.donacion-dato {
-    margin-bottom: 16px;
-}
-
-.donacion-dato h4 {
-    margin: 0;
-    font-size: 16px;
-    font-weight: 600;
-    color: #37474F;
-}
-
-.donacion-dato p {
-    margin: 4px 0 0;
-    font-size: 16px;
-    color: #212121;
-}
-
-/* Tablet horizontal */
-@media (max-width: 1024px) {
-    .modulo-donaciones-completo {
-        flex-wrap: wrap;
-    }
-
-    .donaciones-texto,
-    .donaciones-panel {
-        flex: 1 1 100%;
-        min-width: 100%;
-    }
-
-    .donacion-tab-btn {
-        max-width: calc(50% - 8px);
-    }
-}
-
-/* Teléfono móvil */
-@media (max-width: 768px) {
-    .modulo-donaciones-completo {
-        flex-direction: column;
-    }
-
-    .donacion-tab-btn {
-        max-width: 100%;
-        flex: 1 1 100%;
-    }
-}
-
-html {
-    scroll-behavior: smooth;
-    width: 100%;
-    overflow-x: hidden;
-}
-
+/* main.css */
 .main-wrapper {
     max-width: 1200px;
+    width: 100%;
     margin: 0 auto;
     padding: 0 20px;
-    width: 100%;
     box-sizing: border-box;
+}
+
+/* Mejor legibilidad para pantallas grandes */
+@media (min-width: 1400px) {
+    body {
+        font-size: 1.125rem;
+        /* 18px base */
+    }
+
+    p {
+        font-size: 1.25rem;
+        /* 20px */
+    }
+
+    .titulo-destacado {
+        font-size: 2.25rem;
+        /* ~36px */
+    }
 }

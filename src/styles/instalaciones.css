@@ -1,20 +1,35 @@
-/* instalaciones.css */
-
+/* ===================== SECCIÓN PRINCIPAL ===================== */
 .instalaciones-wrapper {
     max-width: 1200px;
     margin: 0 auto;
     padding: 40px 20px;
 }
 
+.titulo-instalaciones {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    color: #212121;
+}
+
+.linea-separadora {
+    width: 80px;
+    height: 4px;
+    background-color: #E53935;
+    border: none;
+    margin: 0 auto 40px;
+    border-radius: 2px;
+}
+
 .intro-instalaciones {
-    font-size: 18px;
+    font-size: 1.125rem;
     max-width: 800px;
     margin: 0 auto 30px;
     color: #424242;
     text-align: center;
 }
 
-/* Masonry grid libre y denso */
+/* ===================== MASONRY GRID ===================== */
 .masonry-grid {
     column-width: 240px;
     column-gap: 12px;
@@ -40,7 +55,7 @@
     transform: scale(1.02);
 }
 
-/* Overlay */
+/* ===================== OVERLAY ===================== */
 .overlay {
     position: fixed;
     top: 0;
@@ -52,6 +67,14 @@
     justify-content: center;
     align-items: center;
     z-index: 1000;
+}
+
+.overlay-full {
+    width: 100vw !important;
+    height: 100vh !important;
+    padding: 0;
+    margin: 0;
+    z-index: 9999;
 }
 
 .overlay-contenido {
@@ -73,36 +96,11 @@
 
 .overlay-contenido p {
     color: #212121;
-    font-size: 16px;
+    font-size: 1.125rem;
     margin-bottom: 16px;
 }
 
-.cerrar-overlay {
-    background-color: #E53935;
-    color: white;
-    border: none;
-    padding: 10px 16px;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-.cerrar-overlay:hover {
-    background-color: #b71c1c;
-}
-
-/* Overlay pantalla completa sin márgenes */
-.overlay-full {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw !important;
-    height: 100vh !important;
-    padding: 0;
-    margin: 0;
-    z-index: 9999;
-}
-
-/* Botones de navegación */
+/* ===================== NAVEGACIÓN ===================== */
 .btn-navegacion {
     position: absolute;
     top: 50%;
@@ -130,7 +128,15 @@
     right: 10px;
 }
 
-/* Responsive */
+/* ===================== MENSAJE FINAL ===================== */
+.mensaje-visita {
+    text-align: center;
+    margin-top: 40px;
+    font-size: 17px;
+    color: #424242;
+}
+
+/* ===================== RESPONSIVE ===================== */
 @media (max-width: 1024px) {
     .masonry-grid {
         column-width: 200px;
@@ -147,11 +153,4 @@
     .overlay-contenido img {
         max-height: 50vh;
     }
-}
-
-.mensaje-visita {
-    text-align: center;
-    margin-top: 40px;
-    font-size: 17px;
-    color: #424242;
 }

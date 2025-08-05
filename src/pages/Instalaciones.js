@@ -42,7 +42,8 @@ const Instalaciones = () => {
 
     return (
         <div className="instalaciones-wrapper">
-            <h1 className="titulo-destacado">Nuestras Instalaciones</h1>
+            <h1 className="titulo-instalaciones">Nuestras Instalaciones</h1>
+            <hr className="linea-separadora" />
             <p className="intro-instalaciones">
                 Conozca algunos de los espacios que hacen especial al Hogar de Ancianos Santiago Crespo Calvo.
             </p>

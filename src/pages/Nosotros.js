@@ -4,34 +4,46 @@ import EquipoCarrusel from '../components/equipoCarrusel';
 
 const Nosotros = () => {
     return (
-        <div>
+        <div className="nosotros-wrapper">
             <title>Nosotros</title>
-            <h1> Pagina Nosotros JS</h1>
+            <h1 className="titulo-nosotros">Nosotros</h1>
+            <hr className="linea-separadora" />
 
-            {/* División Misión, Visión, Valores, Objetivos como grid */}
+            {/* Misión, Visión, Valores, Objetivos */}
             <div className="grid-mvvo">
                 <div className="mvvo-item">
+                    <img src='/imgs/diana.svg' alt='diana' className="icono-mvvo" />
                     <h2>Misión</h2>
-                    <p>La Misión del hogar de ancianos Santiago Crespo Calvo</p>
+                    <p>
+                        "Brindar atención integral y de calidad a nuestros adultos mayores, promoviendo su bienestar físico, emocional y social en un ambiente de respeto, dignidad y calidez humana."
+                    </p>
                 </div>
                 <div className="mvvo-item">
+                    <img src='/imgs/ojo.svg' alt='visión' className="icono-mvvo" />
                     <h2>Visión</h2>
-                    <p>La Visión del hogar de ancianos Santiago Crespo Calvo</p>
+                    <p>
+                        "Ser reconocidos como el hogar de ancianos líder en Costa Rica, destacando por la excelencia en el cuidado y la innovación en servicios gerontológicos."
+                    </p>
                 </div>
                 <div className="mvvo-item">
+                    <img src='/imgs/diamante.svg' alt='valores' className="icono-mvvo" />
                     <h2>Valores</h2>
-                    <p>Los Valores del hogar de ancianos Santiago Crespo Calvo</p>
+                    <p>
+                        "Respeto, compasión, integridad, profesionalismo y compromiso con el bienestar de nuestros residentes y sus familias."
+                    </p>
                 </div>
                 <div className="mvvo-item">
+                    <img src='/imgs/diana.svg' alt='objetivos' className="icono-mvvo" />
                     <h2>Objetivos</h2>
-                    <p>Los Objetivos del hogar de ancianos Santiago Crespo Calvo</p>
+                    <p>
+                        "Proporcionar cuidado personalizado, mantener la dignidad de nuestros residentes y crear un ambiente familiar que promueva la calidad de vida."
+                    </p>
                 </div>
             </div>
 
-
-            {/* Division Historia */}
-            <div>
-                <h1>Historia</h1>
+            {/* Historia como bloque flotante */}
+            <div className="historia-bloque">
+                <h2>Historia</h2>
                 <p>
                     La Asociación nace en el año 1942 gracias a la preocupación de un grupo de ciudadanos
                     alajuelenses por el bienestar de ancianos desposeídos. Para 1944 ya se estaba trabajando
@@ -46,15 +58,13 @@ const Nosotros = () => {
                     mayores. Debido al mérito que tuvo Don Santiago Crespo, su visión, su liderazgo, su
                     entrega y generosidad por la Institución, el 07 de abril de 1963 la Asamblea General en
                     reconocimiento acordó modificar la Cláusula del nombre a “Hogar Nacional de Ancianos
-                    Santiago Crespo Calvo”
-                    .
+                    Santiago Crespo Calvo”.
                 </p>
             </div>
 
-            {/* Division Equipo */}
-            <h1>Nuestro Equipo</h1>
+            {/* Carrusel de equipo */}
+            <h2 className="titulo-nosotros">Nuestro Equipo</h2>
             <EquipoCarrusel />
-
         </div>
     );
 };

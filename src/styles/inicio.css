@@ -1,0 +1,373 @@
+/* ===================== CONTAINER ===================== */
+.inicio-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+/* ===================== SECCIÓN PRINCIPAL ===================== */
+.hero-cutout {
+    position: relative;
+    width: 100%;
+    height: 420px;
+    background-image: url('/public/imgs/instalaciones/035.jpeg');
+    background-size: cover;
+    background-position: center;
+    margin-bottom: 60px;
+    overflow: hidden;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.hero-cutout::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.25);
+    z-index: 1;
+}
+
+.cutout-texto {
+    z-index: 2;
+    position: relative;
+}
+
+.cutout-texto h1 {
+    font-size: 56px;
+    font-weight: 800;
+    line-height: 1.2;
+    color: white;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.6);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin: 0;
+}
+
+.cutout-texto span {
+    display: block;
+}
+
+/* ===================== SECCIONES DE CONTENIDO ===================== */
+.inicio-seccion {
+    margin: 60px auto;
+    padding: 0 20px;
+}
+
+.inicio-seccion h2 {
+    font-size: 1.5rem;
+    color: #E53935;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.inicio-seccion .icono {
+    font-size: 1.5rem;
+}
+
+.inicio-seccion p {
+    font-size: 1.125rem;
+    color: #424242;
+    max-width: 900px;
+    line-height: 1.75;
+    margin-bottom: 12px;
+}
+
+/* ===================== SEPARADOR ENTRE SECCIONES ===================== */
+.separador {
+    border: none;
+    height: 1px;
+    background-color: #e0e0e0;
+    margin: 60px auto;
+    width: 80%;
+}
+
+/* ===================== ENLACES ===================== */
+.inicio-container a {
+    font-weight: bold;
+    border-bottom: 1px dashed #E53935;
+}
+
+.inicio-container a:hover {
+    border-bottom-style: solid;
+}
+
+/* ===================== MÓDULO DONACIONES ===================== */
+.modulo-donaciones-completo {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    padding: 30px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    margin-bottom: 60px;
+    max-width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.donaciones-texto {
+    flex: 0 0 35%;
+    min-width: 320px;
+}
+
+.donaciones-panel {
+    flex: 1;
+    min-width: 600px;
+}
+
+.donaciones-tabs-horizontal {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    gap: 8px;
+}
+
+@media (min-width: 1200px) {
+    .donaciones-tabs-horizontal {
+        flex-wrap: nowrap;
+    }
+}
+
+.donacion-tab-btn {
+    width: calc(100% / 2);
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    white-space: normal;
+    text-align: center;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px 6px 0 0;
+    background-color: #f5f5f5;
+    color: #333;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.donacion-tab-btn:hover {
+    background-color: #e8e8e8;
+}
+
+.donacion-tab-btn.activo {
+    background-color: #E53935;
+    color: #fff;
+    border-bottom: 2px solid transparent;
+    font-weight: bold;
+}
+
+.donacion-tab-panel {
+    border: 1px solid #ccc;
+    border-radius: 0 0 8px 8px;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.donacion-dato {
+    margin-bottom: 16px;
+}
+
+.donacion-dato h4 {
+    margin: 0;
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #37474F;
+}
+
+.donacion-dato p {
+    margin: 4px 0 0;
+    font-size: 1.125rem;
+    color: #212121;
+}
+
+.donaciones-intro {
+    font-size: 1.125rem;
+    color: #424242;
+    margin-bottom: 16px;
+}
+
+/* ===================== RESPONSIVE ===================== */
+@media (max-width: 1024px) {
+    .modulo-donaciones-completo {
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        align-items: flex-start;
+    }
+
+    .donaciones-texto,
+    .donaciones-panel {
+        flex: 1 1 100%;
+        min-width: 100%;
+    }
+
+    .donacion-tab-btn {
+        max-width: calc(50% - 8px);
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-cutout {
+        height: 280px;
+    }
+
+    .cutout-texto h1 {
+        font-size: 28px;
+    }
+
+    .modulo-donaciones-completo {
+        flex-direction: column;
+    }
+
+    .donacion-tab-btn {
+        max-width: 100%;
+        flex: 1 1 100%;
+    }
+
+    .inicio-seccion {
+        padding: 0 15px;
+        margin-bottom: 40px;
+    }
+
+    .inicio-seccion h2 {
+        font-size: 24px;
+    }
+
+    .inicio-seccion p {
+        font-size: 16px;
+    }
+}
+
+.hero-subtexto {
+    font-size: 20px;
+    font-weight: 400;
+    color: #f5f5f5;
+    margin-top: 12px;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
+}
+
+.hero-modernizado {
+    position: relative;
+    width: 100vw;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+
+    height: 500px;
+    background-image: url('/public/imgs/instalaciones/035.jpeg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+    padding-bottom: 40px;
+}
+
+
+.hero-modernizado::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, #E53935, #D32F2F, #C62828);
+    opacity: 0.6;
+    z-index: 1;
+}
+
+.hero-contenido {
+    z-index: 2;
+    position: relative;
+    color: white;
+}
+
+.hero-contenido h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    margin: 0;
+    line-height: 1.2;
+    color: white !important;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
+}
+
+.hero-contenido span {
+    display: block;
+}
+
+.hero-subtexto {
+    font-size: 1.2rem;
+    margin-top: 16px;
+    color: #f3f4f6;
+}
+
+.grid-tarjetas-inicio {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    margin: 40px 0;
+    padding-top: 20px;
+}
+
+@media (max-width: 768px) {
+    .grid-tarjetas-inicio {
+        grid-template-columns: 1fr;
+    }
+}
+
+.card-inicio {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    backdrop-filter: blur(4px);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-inicio:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.card-inicio h2 {
+    font-size: 1.75rem;
+    color: #E53935;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.card-inicio p {
+    font-size: 1.25rem;
+    color: #424242;
+    line-height: 1.8;
+}
+
+.card-inicio .icono img {
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+@media (max-width: 768px) {
+    .card-inicio {
+        padding: 24px;
+    }
+}

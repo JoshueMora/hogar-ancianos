@@ -6,47 +6,66 @@ const servicios = [
         titulo: 'Ejercicio y Movimiento',
         icono: 'ejercicio.svg',
         descripcion:
-            'Promovemos el bienestar físico mediante sesiones terapéuticas adaptadas, caminatas y ejercicios suaves, ayudando a mantener la movilidad y la autonomía.',
+            'Promovemos el bienestar físico mediante caminatas, rutinas suaves y sesiones en nuestra piscina para ejercicios terapéuticos, ayudando a preservar la movilidad y autonomía de cada residente.',
     },
     {
         titulo: 'Terapias Especializadas',
         icono: 'terapia.svg',
         descripcion:
-            'Ofrecemos terapias ocupacionales y cognitivas diseñadas por profesionales, con el objetivo de estimular la mente y mejorar la calidad de vida.',
+            'Ofrecemos terapias ocupacionales, físicas y cognitivas diseñadas por profesionales, enfocadas en mantener la funcionalidad, mejorar la salud mental y elevar la calidad de vida de los adultos mayores.',
     },
     {
         titulo: 'Atención Recreativa y Social',
         icono: 'arte.svg',
         descripcion:
-            'Organizamos talleres, actividades culturales y juegos que fomentan la socialización, la expresión creativa y el disfrute del tiempo libre.',
+            'Organizamos actividades artísticas, culturales, musicales y juegos grupales que fortalecen los vínculos sociales, estimulan la creatividad y brindan alegría en el día a día.',
     },
     {
         titulo: 'Alimentación y Convivencia',
         icono: 'alimentacion.svg',
         descripcion:
-            'Proveemos una alimentación balanceada en espacios que fomentan la convivencia, fortaleciendo los lazos sociales y el bienestar emocional.',
+            'Brindamos una alimentación balanceada y supervisada por profesionales de nutrición, fomentando la convivencia en espacios diseñados para compartir, conversar y disfrutar juntos cada comida.',
     },
     {
         titulo: 'Apoyo Espiritual',
         icono: 'capilla.svg',
         descripcion:
-            'Brindamos un espacio de reflexión y espiritualidad a través de nuestra capilla, abierto a la oración individual o actividades grupales religiosas.',
+            'Ofrecemos un espacio de reflexión en nuestra capilla, con celebraciones religiosas y acompañamiento espiritual según las creencias de cada residente, promoviendo la paz interior y el consuelo.',
     },
     {
-        titulo: 'Conexión con la Naturaleza',
-        icono: 'flor.svg',
+        titulo: 'Lavandería',
+        icono: 'lavadora.svg',
         descripcion:
-            'A través de la jardinería y el contacto con espacios verdes, fomentamos la tranquilidad emocional, la responsabilidad y el sentido de pertenencia.',
+            'Contamos con un servicio de lavandería eficiente y personalizado, asegurando el cuidado adecuado de la ropa personal de los residentes con puntualidad, higiene y atención al detalle.',
     },
+    {
+        titulo: 'Enfermería y Vigilancia',
+        icono: 'enfermeria.svg',
+        descripcion:
+            'Disponemos de personal de enfermería altamente capacitado que brinda atención continua, administración de medicamentos y seguimiento de la salud, con calidez y profesionalismo.',
+    },
+    {
+        titulo: 'Atención Médica',
+        icono: 'doctor.svg',
+        descripcion:
+            'Garantizamos controles médicos regulares y atención preventiva mediante visitas médicas programadas, coordinadas con especialistas cuando sea necesario para un cuidado integral.',
+    },
+    {
+        titulo: 'Voluntariado',
+        icono: 'voluntariado.svg',
+        descripcion:
+            'Fomentamos la integración de voluntarios que brindan compañía, afecto y actividades recreativas, enriqueciendo la vida emocional de nuestros adultos mayores y creando vínculos significativos.',
+    }
 ];
 
 const Servicios = () => {
     return (
         <div className="servicios-wrapper">
             <title>Servicios</title>
-            <h1 className="titulo-destacado">Servicios</h1>
+            <h1 className="titulo-servicios">Servicios</h1>
+            <hr className="linea-separadora" />
             <p className="intro-servicios">
-                En el Hogar de Ancianos Santiago Crespo Calvo brindamos una atención integral centrada en el bienestar físico, emocional, social y espiritual. Nuestros servicios están diseñados para promover una vida digna, activa y acompañada.
+                En el Hogar de Ancianos Santiago Crespo Calvo brindamos una atención integral centrada en el bienestar físico, emocional, social y espiritual. Nuestros servicios están diseñados para promover una vida digna, activa y acompañada, en un entorno seguro y con instalaciones como nuestra piscina para terapias acuáticas.
             </p>
             <div className="servicios-grid">
                 {servicios.map((servicio, index) => (

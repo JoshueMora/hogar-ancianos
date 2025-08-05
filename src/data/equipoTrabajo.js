@@ -2,7 +2,7 @@ export const equipoTrabajo = [
 
     {
         id: 1,
-        foto: "/imgs/Waze.svg",
+        foto: "/imgs/Ana.jpg",
         nombre: "Ana Pérez",
         cargo: "Directora",
         Motivacion: "Liderar con empatía y dedicación para mejorar la calidad de vida de nuestros ancianos.",

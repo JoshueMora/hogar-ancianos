@@ -4,9 +4,8 @@ import '../styles/contacto.css';
 const Contacto = () => {
     const [enviado, setEnviado] = useState(false);
     const [bloqueado, setBloqueado] = useState(false);
-    const BLOQUEO_MINUTOS = 5;
+    const BLOQUEO_MINUTOS = 0;
 
-    // Verifica bloqueo desde localStorage al cargar
     useEffect(() => {
         const ultimo = localStorage.getItem('bloqueoContacto');
         if (ultimo) {
@@ -22,21 +21,17 @@ const Contacto = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-
         if (bloqueado) {
             alert("Por favor espere unos minutos antes de enviar otro mensaje.");
             return;
         }
 
         const formData = new FormData(e.target);
-
         try {
-            await fetch("https://formsubmit.co/ajax/qmazxgioyhxpnblxgn@fxavaj.com", {
+            await fetch("https://formsubmit.co/joshuemora24@gmail.com", {
                 method: "POST",
                 body: formData,
-                headers: {
-                    Accept: "application/json",
-                },
+                headers: { Accept: "application/json" },
             });
 
             setEnviado(true);
@@ -52,84 +47,106 @@ const Contacto = () => {
     };
 
     return (
-        <div className="contacto-wrapper">
+        <div>
             <title>Contacto</title>
-            <div className="contacto-texto">
-                <h2>¿Necesitás ayuda?</h2>
-                <p>¿No encontraste respuesta a tu pregunta en el apartado de <a href="/FAQ">preguntas frecuentes</a>? No dudes en contactarnos.</p>
-                <p>También podés llamarnos al <strong>2442-2165</strong> con las extensiones correspondientes o visitarnos de lunes a viernes de 8:00 a.m. a 4:00 p.m.</p>
-            </div>
 
-            <form className="contacto-formulario" onSubmit={handleSubmit}>
-                <input type="hidden" name="_captcha" value="false" />
-                <input type="hidden" name="_template" value="table" />
-                <input type="text" name="_honey" style={{ display: 'none' }} />
+            {/* HERO con encabezado principal */}
+            <section className="contacto-hero-rediseño">
+                <h1 className="titulo-contacto">Contacto</h1>
+                <hr className="linea-separadora" />
+                <p className="contacto-hero-titulo">
+                    Estamos aquí para <span className="resaltar">ayudarte</span>
+                </p>
+                <p className="contacto-hero-subtitulo">
+                    Nos comprometemos a brindar el mejor cuidado y atención a nuestros residentes y sus familias
+                </p>
+            </section>
 
-                <div>
-                    <label htmlFor="nombre">Nombre completo:</label>
-                    <input
-                        type="text"
-                        id="nombre"
-                        name="NombreContacto"
-                        required
-                        onInvalid={(e) => e.target.setCustomValidity('Por favor complete su nombre completo.')}
-                        onInput={(e) => e.target.setCustomValidity('')}
-                    />
+            {/* CONTENIDO: formulario y ayuda */}
+            <section className="contacto-contenedor-principal">
+                {/* Formulario */}
+                <div className="contacto-formulario-box">
+                    <h2><img src="/imgs/avion.svg" className="icono-inline" alt="send" /> Envíanos un mensaje</h2>
+                    <p>Completa el formulario y nos pondremos en contacto contigo</p>
+
+                    <form onSubmit={handleSubmit}>
+                        <input type="hidden" name="_captcha" value="false" />
+                        <input type="hidden" name="_template" value="table" />
+                        <input type="text" name="_honey" style={{ display: 'none' }} />
+
+                        <div className="form-grid">
+                            <div>
+                                <label>Nombre completo *</label>
+                                <input type="text" name="NombreContacto" required />
+                            </div>
+                            <div>
+                                <label>Teléfono *</label>
+                                <input type="tel" name="TelefonoContacto" required pattern="[2678][0-9]{7}" />
+                            </div>
+                        </div>
+
+                        <div>
+                            <label>Correo electrónico *</label>
+                            <input type="email" name="EmailContacto" required />
+                        </div>
+
+                        <div>
+                            <label>Mensaje *</label>
+                            <textarea name="Mensaje" rows="4" required />
+                        </div>
+
+                        <div className="boton-con-tooltip">
+                            <button type="submit" disabled={bloqueado}>
+                                <img src="/imgs/avion.svg" alt="enviar" className="icono-inline" /> Enviar mensaje
+                            </button>
+                            {bloqueado && (
+                                <span className="tooltip">
+                                    Hemos recibido tu mensaje. Nos pondremos en contacto lo antes posible.
+                                </span>
+                            )}
+                        </div>
+                    </form>
                 </div>
 
-                <div>
-                    <label htmlFor="telefono">Teléfono:</label>
-                    <input
-                        type="tel"
-                        id="telefono"
-                        name="TelefonoContacto"
-                        required
-                        pattern="[2678][0-9]{7}"
-                        onInvalid={(e) => e.target.setCustomValidity('Ingrese un número válido de 8 dígitos en Costa Rica.')}
-                        onInput={(e) => e.target.setCustomValidity('')}
-                    />
+                {/* Ayuda */}
+                <div className="contacto-ayuda-box">
+                    <div className="contacto-ayuda-alerta">
+                        <h3 className='info-linea'>
+                            <img className='icono' src="/imgs/pregunta.svg" alt="icono pregunta" />
+                            ¿Necesitás ayuda?</h3>
+                        <p>
+                            ¿No encontraste respuesta a tu pregunta en el apartado de{' '}
+                            <a href="/FAQ">preguntas frecuentes</a>? No dudes en contactarnos.
+                        </p>
+                        <div className="ayuda-contacto-box">
+                            <p>También podés llamarnos al <strong>2442-2165</strong> con las extensiones correspondientes.</p>
+                        </div>
+                    </div>
+
+                    <div className="contacto-info-extra">
+                        <h4>Información de contacto</h4>
+                        <div className="info-linea">
+                            <img className='icono' src="/imgs/telefono.svg" alt="tel" />
+                            <div>
+                                <strong>Teléfono</strong><br />
+                                2442-2165
+                            </div>
+                        </div>
+
+                        <div className="info-linea">
+                            <img className='icono' src="/imgs/correo.svg" alt="correo" />
+                            <div>
+                                <strong>Email</strong><br />
+                                rrhh@hsantiagocrespo.com<br />
+                                serviciocliente@hsantiagocrespo.com
+                            </div>
+                        </div>
+
+                    </div>
                 </div>
+            </section>
 
-                <div>
-                    <label htmlFor="email">Correo electrónico:</label>
-                    <input
-                        type="email"
-                        id="email"
-                        name="EmailContacto"
-                        required
-                        onInvalid={(e) => e.target.setCustomValidity('Ingrese un correo electrónico válido.')}
-                        onInput={(e) => e.target.setCustomValidity('')}
-                    />
-                </div>
-
-                <div>
-                    <label htmlFor="mensaje">Mensaje:</label>
-                    <textarea
-                        id="mensaje"
-                        name="Mensaje"
-                        rows="4"
-                        required
-                        onInvalid={(e) => e.target.setCustomValidity('Por favor escriba su mensaje.')}
-                        onInput={(e) => e.target.setCustomValidity('')}
-                    ></textarea>
-                </div>
-
-                <div className="boton-con-tooltip">
-                    <button
-                        type="submit"
-                        disabled={bloqueado}
-                    >
-                        Enviar
-                    </button>
-                    {bloqueado && (
-                        <span className="tooltip">
-                            Hemos recibido tu mensaje. Nos pondremos en contacto lo antes posible. Gracias por contactar al Hogar de Ancianos Santiago Crespo Calvo.
-                        </span>
-                    )}
-                </div>
-
-            </form>
-
+            {/* Overlay de confirmación */}
             {enviado && (
                 <div className="overlay-confirmacion" onClick={() => setEnviado(false)}>
                     <div className="mensaje-superpuesto" onClick={(e) => e.stopPropagation()}>
@@ -139,6 +156,7 @@ const Contacto = () => {
             )}
         </div>
     );
+
 };
 
 export default Contacto;

@@ -1,10 +1,10 @@
-// src/components/EquipoCarousel.jsx
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { equipoTrabajo } from '../data/equipoTrabajo';
 import '../styles/nosotros.css';
 
 const EquipoCarousel = () => {
     const [indiceActual, setIndiceActual] = useState(0);
+    const [esMovil, setEsMovil] = useState(false);
     const total = equipoTrabajo.length;
 
     const siguiente = () => {
@@ -15,13 +15,26 @@ const EquipoCarousel = () => {
         setIndiceActual((indiceActual - 1 + total) % total);
     };
 
+    useEffect(() => {
+        const manejarResize = () => {
+            setEsMovil(window.innerWidth <= 768);
+        };
+
+        manejarResize(); // Ejecutar una vez al cargar
+
+        window.addEventListener('resize', manejarResize);
+        return () => window.removeEventListener('resize', manejarResize);
+    }, []);
+
     const miembro = equipoTrabajo[indiceActual];
 
     return (
         <div className="carousel-equipo-contenedor">
             <div className="carousel-equipo">
-                {/* Botón izquierdo solo visible en escritorio */}
-                <button className="btn-cambio btn-escritorio" onClick={anterior}>⟨</button>
+                {/* Mostrar botones de escritorio solo si no es móvil */}
+                {!esMovil && (
+                    <button className="btn-cambio btn-escritorio" onClick={anterior}>⟨</button>
+                )}
 
                 <div className="tarjeta-equipo">
                     <img src={miembro.foto} alt={miembro.nombre} className="foto-equipo" />
@@ -32,11 +45,12 @@ const EquipoCarousel = () => {
                     </div>
                 </div>
 
-                {/* Botón derecho solo visible en escritorio */}
-                <button className="btn-cambio btn-escritorio" onClick={siguiente}>⟩</button>
+                {!esMovil && (
+                    <button className="btn-cambio btn-escritorio" onClick={siguiente}>⟩</button>
+                )}
             </div>
 
-            {/* Puntos siempre visibles */}
+            {/* Puntos indicadores */}
             <div className="puntos-indicadores">
                 {equipoTrabajo.map((_, i) => (
                     <span
@@ -47,11 +61,13 @@ const EquipoCarousel = () => {
                 ))}
             </div>
 
-            {/* Controles móviles con flechas */}
-            <div className="controles-moviles">
-                <button className="btn-cambio" onClick={anterior}>⟨</button>
-                <button className="btn-cambio" onClick={siguiente}>⟩</button>
-            </div>
+            {/* Mostrar flechas móviles solo si es móvil */}
+            {esMovil && (
+                <div className="controles-moviles">
+                    <button className="btn-cambio" onClick={anterior}>⟨</button>
+                    <button className="btn-cambio" onClick={siguiente}>⟩</button>
+                </div>
+            )}
         </div>
     );
 };

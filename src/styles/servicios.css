@@ -1,18 +1,34 @@
-/* servicios.css */
-
+/* ===================== CONTENEDOR PRINCIPAL ===================== */
 .servicios-wrapper {
     padding: 60px 20px;
     background-color: #fefefe;
     text-align: center;
 }
 
+.titulo-servicios {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    color: #212121;
+}
+
+.linea-separadora {
+    width: 80px;
+    height: 4px;
+    background-color: #E53935;
+    border: none;
+    margin: 0 auto 40px;
+    border-radius: 2px;
+}
+
 .intro-servicios {
-    font-size: 18px;
+    font-size: 1.125rem;
     max-width: 800px;
     margin: 0 auto 40px;
     color: #555;
 }
 
+/* ===================== CUADRÍCULA DE SERVICIOS ===================== */
 .servicios-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -33,6 +49,7 @@
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
 }
 
+/* ===================== ICONO Y TEXTO ===================== */
 .icono-servicio {
     width: 72px;
     height: 72px;
@@ -40,13 +57,13 @@
 }
 
 .servicio-cubo h3 {
-    font-size: 22px;
+    font-size: 1.5rem;
     color: #E53935;
     margin-bottom: 14px;
 }
 
 .servicio-cubo p {
-    font-size: 16px;
+    font-size: 1.125rem;
     color: #424242;
     line-height: 1.6;
 }

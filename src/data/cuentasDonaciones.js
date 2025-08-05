@@ -56,5 +56,5 @@ export const cuentas = [
             { etiqueta: "Número 3", valor: "2222-2222" },
             { etiqueta: "Número 4", valor: "9999-9999" }
         ]
-    }
+    },
 ];

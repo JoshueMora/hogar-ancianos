@@ -12,7 +12,8 @@ const FaqCascada = () => {
     return (
         <section className="faq-wrapper seccion-fondo">
             <title>Preguntas Frecuentes</title>
-            <h2 className="titulo-destacado">Preguntas Frecuentes</h2>
+            <h2 className="titulo-faq">Preguntas Frecuentes</h2>
+            <hr className='linea-separadora'></hr>
             <div className="faq-lista">
                 {FAQ.map(({ id, pregunta, respuesta }) => (
                     <div

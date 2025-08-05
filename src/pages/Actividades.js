@@ -1,10 +1,14 @@
+import React from 'react';
+import '../styles/actividades.css';
+
 
 const Actividades = () => {
     return (
         <div>
             <title>Actividades</title>
-            <h1> Pagina Actividades JS</h1>
-            <p>Texto de ejemplo.</p>
+            <h1 className="titulo-actividades">Actividades</h1>
+            <hr className="linea-separadora" />
+            <p>Aquí puedes encontrar información sobre las actividades que ofrecemos. </p>
         </div>
     );
 };

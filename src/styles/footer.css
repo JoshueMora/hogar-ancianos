@@ -1,51 +1,39 @@
-/* footer.css */
-
+/* ===================== ESTRUCTURA GENERAL ===================== */
 footer {
     background-color: #F5F5F5;
-    padding: 0;
     border-top: 1px solid #ddd;
     font-family: 'Nunito', sans-serif;
     color: #212121;
+    font-size: 17px;
 }
 
-footer>div {
-    max-width: 1200px;
-    width: 100%;
-}
-
-/* Secciones generales */
-.info-general,
-.navegacion {
-    flex: 1 1 300px;
-    max-width: 320px;
-    min-width: 250px;
-    box-sizing: border-box;
-
-}
-
-.navegacion {
-    align-items: center;
-    text-align: center;
-}
-
-.horario {
-    flex: 1 1 250px;
-    max-width: 260px;
-    min-width: 200px;
-    box-sizing: border-box;
-    font-size: 13px;
+/* ===================== CONTENEDOR DE COLUMNAS ===================== */
+.footer-contenido {
     display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px 20px;
+    box-sizing: border-box;
 }
 
+.footer-col {
+    flex: 1;
+    min-width: 260px;
+    box-sizing: border-box;
+}
+
+/* ===================== COLUMNA 1: INFORMACIÓN GENERAL ===================== */
 .info-general {
     display: flex;
     flex-direction: column;
     gap: 10px;
 }
 
-.info-general img.logo-extenso {
+.logo-extenso {
     max-width: 280px;
     height: auto;
     margin-bottom: 10px;
@@ -53,8 +41,94 @@ footer>div {
 
 .info-general p {
     margin: 4px 0;
-    font-size: 14px;
+    font-size: 1rem;
     color: #212121;
+}
+
+.redes-sociales {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 24px;
+    margin-top: 20px;
+}
+
+.redes-sociales a img {
+    height: 36px;
+    width: 36px;
+    transition: transform 0.2s;
+}
+
+.redes-sociales a img:hover {
+    transform: scale(1.1);
+}
+
+/* ===================== COLUMNA 2: NAVEGACIÓN ===================== */
+.navegacion {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.navegacion h1 {
+    font-size: 20px;
+    margin-bottom: 12px;
+    color: #212121;
+}
+
+.navegacion ul {
+    list-style: none;
+    padding: 0;
+}
+
+.navegacion li {
+    margin: 8px 0;
+}
+
+.navegacion a {
+    text-decoration: none;
+    color: #212121;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.navegacion a:hover {
+    color: #E53935;
+}
+
+/* ===================== COLUMNA 3: HORARIO Y CONTACTO ===================== */
+.horario {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.horario h1 {
+    font-size: 18px;
+    margin-bottom: 8px;
+    color: #212121;
+}
+
+.fila-horario {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #ccc;
+    padding: 6px 0;
+    font-size: 15px;
+    color: #212121;
+}
+
+.fila-horario:last-child {
+    border-bottom: none;
+}
+
+.fila-horario .dia {
+    font-weight: 500;
+}
+
+.fila-horario .hora {
+    font-weight: bold;
 }
 
 .info-item {
@@ -68,180 +142,63 @@ footer>div {
     width: 20px;
 }
 
-/* Redes sociales */
-.redes-sociales {
-    display: flex;
-    gap: 15px;
-    margin-top: 10px;
-}
-
-.redes-sociales a img {
-    height: 26px;
-    width: 26px;
-    transition: transform 0.2s;
-}
-
-.redes-sociales a img:hover {
-    transform: scale(1.1);
-}
-
-/* Navegación */
-.navegacion h1 {
-    font-size: 18px;
-    margin-bottom: 10px;
+.info-item p {
+    margin: 0;
+    font-size: 15px;
     color: #212121;
 }
 
-.navegacion ul {
-    list-style: none;
-    padding: 0;
-}
-
-.navegacion li {
-    margin: 6px 0;
-}
-
-.navegacion a {
-    text-decoration: none;
-    color: #212121;
-    transition: color 0.3s ease;
-    font-weight: 500;
-}
-
-.navegacion a:hover {
-    color: #E53935;
-}
-
-/* Horario */
-.horario h1 {
-    font-size: 16px;
-    margin-bottom: 8px;
-    color: #212121;
-    text-align: left;
-}
-
-/* Final del footer */
+/* ===================== PIE DE PÁGINA FINAL ===================== */
 .footer-final {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 12px 20px;
-    text-align: center;
-    font-size: 14px;
-    color: #777;
-    flex-wrap: wrap;
-    text-align: center;
     width: 100%;
-    overflow-x: hidden;
-    padding: 12px 20px;
+    padding: 20px;
+    text-align: center;
+    font-size: 15px;
+    color: #777;
+    background-color: #f1f1f1;
     box-sizing: border-box;
+    margin: 0;
 }
 
+.footer-final a {
+    color: #E53935;
+    text-decoration: none;
+}
 
-/* Responsive */
+.footer-final a:hover {
+    color: #b71c1c;
+}
+
+/* ===================== RESPONSIVE ===================== */
 @media (max-width: 768px) {
-    footer {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-    }
-
-    .info-general,
-    .navegacion,
-    .horario {
-        align-items: center;
-    }
-
-    .info-item {
-        justify-content: center;
-    }
-
-    .redes-sociales {
-        justify-content: center;
-    }
-
-    .navegacion ul {
-        padding-left: 0;
-    }
-
     .footer-contenido {
         flex-direction: column;
         align-items: center;
         text-align: center;
-        padding: 20px;
+    }
+
+    .footer-col h1 {
+        text-align: center;
+    }
+
+    .info-item {
+        justify-content: center;
+        text-align: center;
     }
 
     .fila-horario {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 10px;
-        align-items: start;
-        border-bottom: 1px solid #ccc;
-        padding: 6px 0;
-        font-size: 14px;
-        color: #212121;
+        flex-direction: column;
+        align-items: center;
+        gap: 4px;
+        border: none;
     }
 
-    .fila-horario .hora {
-        white-space: nowrap;
-        min-width: 160px;
-        text-align: left;
-        word-break: break-word;
+    .fila-horario span {
+        text-align: center;
     }
 
-    .fila-horario .dia {
-        white-space: nowrap;
-        text-align: left;
-        word-break: break-word;
+    .redes-sociales {
+        justify-content: center;
+        flex-wrap: wrap;
     }
-}
-
-.tabla-horario {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 14px;
-}
-
-.tabla-horario th,
-.tabla-horario td {
-    border: 1px solid #ccc;
-    padding: 8px;
-    text-align: left;
-}
-
-.tabla-horario th {
-    background-color: #f0f0f0;
-    font-weight: bold;
-}
-
-.fila-horario {
-    display: flex;
-    justify-content: space-between;
-    border-bottom: 1px solid #ccc;
-    padding: 6px 0;
-    font-size: 14px;
-    color: #212121;
-}
-
-.fila-horario:last-child {
-    border-bottom: none;
-}
-
-.fila-horario .dia {
-    font-weight: 500;
-}
-
-.fila-horario .hora {
-    font-style: bold;
-}
-
-.footer-contenido {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-    max-width: 1200px;
-    width: 100%;
-    margin: 0 auto;
-    padding: 20px 20px 0;
-    box-sizing: border-box;
 }
