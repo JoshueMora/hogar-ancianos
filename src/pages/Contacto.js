@@ -28,7 +28,7 @@ const Contacto = () => {
 
         const formData = new FormData(e.target);
         try {
-            await fetch("https://formsubmit.co/joshuemora24@gmail.com", {
+            await fetch("https://formsubmit.co/", {
                 method: "POST",
                 body: formData,
                 headers: { Accept: "application/json" },

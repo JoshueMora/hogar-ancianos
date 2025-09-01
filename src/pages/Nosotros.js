@@ -63,8 +63,9 @@ const Nosotros = () => {
             </div>
 
             {/* Carrusel de equipo */}
-            <h2 className="titulo-nosotros">Nuestro Equipo</h2>
-            <EquipoCarrusel />
+
+            {/* <h2 className="titulo-nosotros">Nuestro Equipo</h2>
+            <EquipoCarrusel /> */}
         </div>
     );
 };
