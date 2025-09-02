@@ -1,0 +1,46 @@
+# .github/workflows/deploy.yml
+name: Deploy to cPanel (hsantiagocrespo-cr.com)
+
+on:
+  push:
+    branches: [ "main" ]
+  workflow_dispatch: {}
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    concurrency:
+      group: deploy-cpanel
+      cancel-in-progress: true
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Build (CRA)
+        run: |
+          npm ci
+          npm run build
+
+      - name: Add .htaccess to build (if present)
+        run: |
+          if [ -f ".htaccess" ]; then cp ./.htaccess ./build/.htaccess; fi
+
+      - name: Deploy via FTPS to public_html
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.CPANEL_HOST }}
+          username: ${{ secrets.CPANEL_USER }}
+          password: ${{ secrets.CPANEL_PASS }}
+          server-dir: /public_html/hsantiagocrespo-cr.com
+          local-dir: build
+          protocol: ftps
+          exclude: |
+            **/.git*
+            **/.github*
+            **/node_modules/**
+            **/.DS_Store
+            **/README.md
