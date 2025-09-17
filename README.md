@@ -1,10 +1,3 @@
-Para la programacion de los colores:
-
-Usar className="seccion-fondo" para bloques que necesiten una sección visualmente separada.
-
-Usar <button className="btn-principal">Enviar</button> para los botones principales.
-
-Aplicar className="icono" si quieres dar énfasis visual a íconos en amarillo.
 
 # Getting Started with Create React App
 
